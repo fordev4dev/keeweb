@@ -9,9 +9,9 @@ The app can run either in browser, or as a desktop app.
 
 # Quick Links
 
-Apps: [Web](https://app.keeweb.info/) [Desktop](https://github.com/keeweb/keeweb/releases/latest)  
-Timeline: [Release Notes](release-notes.md) [TODO](https://github.com/keeweb/keeweb/wiki/TODO)  
-On one page: [Features](https://keeweb.info/#features) [FAQ](https://github.com/keeweb/keeweb/wiki/FAQ)  
+Apps: [Web](https://app.keeweb.info/), [Desktop](https://github.com/keeweb/keeweb/releases/latest)  
+Timeline: [Release Notes](release-notes.md), [TODO](https://github.com/keeweb/keeweb/wiki/TODO)  
+On one page: [Features](https://keeweb.info/#features), [FAQ](https://github.com/keeweb/keeweb/wiki/FAQ)  
 Website: [keeweb.info](https://keeweb.info)  
 Twitter: [kee_web](https://twitter.com/kee_web)  
 
@@ -36,8 +36,7 @@ To make Dropbox work in your self-hosted app:
 
 1. [create](https://www.dropbox.com/developers/apps/create) a Dropbox app
 2. find your app key (in Dropbox App page, go to Settings/App key)
-3. change Dropbox app key in index.html file: `sed -i.bak s/qp7ctun6qt5n9d6/your_app_key/g index.html`
-    (or, if you are building from source, change it [here](app/scripts/comp/dropbox-link.js#L12))
+3. add your Dropbox app key to [settings json](https://github.com/keeweb/keeweb/wiki/Configuration#json-app-config)
 
 # Building
 
@@ -45,20 +44,30 @@ The app can be built with grunt: `grunt` (html file will be in `dist/`).
 Desktop apps are built with `grunt desktop`. This works only in mac osx as it builds dmg; requires wine.  
 To run Electron app without building installer, install electron package (`npm install electron-prebuilt -g`), build the app with `grunt` and start in this way:
 ```bash
-$ grunt
-$ electron electron --htmlpath=tmp
+$ grunt && grunt dev
+$ npm run-script electron
 ```
 
 For debug build:
 
 1. run `grunt`
-2. run `grunt watch`
+2. run `grunt dev`
 3. open `tmp/index.html`
 
 # Contributing
 
 Please, read contribution guidelines: [for issues](.github/ISSUE_TEMPLATE.md) and [for pull requests](.github/PULL_REQUEST_TEMPLATE.md).  
-For pull requests: branch is important! `master` is only for hotfixes, `develop` is for new features.
+For pull requests: branch is important! `master` is only for hotfixes, `develop` is for new features.  
+Here's a [list of issues](https://github.com/keeweb/keeweb/labels/need%20help) which heed help. 
+Also you can help by [translating KeeWeb](https://keeweb.oneskyapp.com) to your language.  
+
+# Donations
+
+Donate with PayPal:  
+[![Donate with PayPal](https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VE75PM997C2GW)  
+
+Please note: donation does not imply any type of service contract.  
+
 
 # License
 
